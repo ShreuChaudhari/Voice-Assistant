@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef } from 'react';
-import { transcribeAudio, processText } from './api';
+import axios from 'axios';
 
 function App() {
     const [isRecording, setIsRecording] = useState(false);
@@ -35,15 +35,19 @@ function App() {
 
     const handleAudioData = async () => {
         const audioBlob = new Blob(audioChunks.current, { type: 'audio/webm' });
+        const formData = new FormData();
+        formData.append("audio", audioBlob, "recording.webm");
 
         try {
-            const response = await transcribeAudio(audioBlob);
+            const response = await axios.post('http://localhost:10000/api/record/', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
 
-            if (response.success) {
-                addMessageToConversation('user', response.text);
-                await processTextResponse(response.text);
+            if (response.data.success) {
+                addMessageToConversation('user', response.data.text);
+                await processText(response.data.text);
             } else {
-                console.error("Error transcribing audio:", response.error);
+                console.error("Error transcribing audio:", response.data.error);
                 addMessageToConversation('ai', "Sorry, I couldn't understand that.");
             }
         } catch (error) {
@@ -54,17 +58,17 @@ function App() {
         audioChunks.current = [];
     };
 
-    const processTextResponse = async (text) => {
+    const processText = async (text) => {
         try {
-            const response = await processText(text);
+            const response = await axios.post('http://localhost:10000/api/process/', { text });
 
-            if (response.success) {
-                addMessageToConversation('ai', response.response);
-                if (response.should_speak) {
-                    speakText(response.response);
+            if (response.data.success) {
+                addMessageToConversation('ai', response.data.response);
+                if (response.data.should_speak) {
+                    speakText(response.data.response);
                 }
             } else {
-                console.error("Error processing text:", response.error);
+                console.error("Error processing text:", response.data.error);
                 addMessageToConversation('ai', "Sorry, I couldn't process that request.");
             }
         } catch (error) {
