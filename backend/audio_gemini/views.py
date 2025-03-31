@@ -40,7 +40,7 @@ def django_respond(query):
         return response.text
     except Exception as e:
         print(f"Error communicating with Gemini API: {e}")
-        return "Hmm, as Shreya, I'm not entirely sure about that right now."
+        return "Hmm, I'm not entirely sure about that right now."
 
 @api_view(['POST'])
 def record_audio(request):
