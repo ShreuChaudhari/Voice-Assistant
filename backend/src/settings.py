@@ -30,6 +30,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",  
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -84,5 +85,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:5173", 
-    "https://voice-assistant-production-d04d.up.railway.app",
+    "https://voice-assistant-zeta-ten.vercel.app",
+    "https://voice-assistant-shreya.onrender.com",
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://voice-assistant-zeta-ten.vercel.app",
+    "https://voice-assistant-shreya.onrender.com",
+]
+
+CORS_ALLOW_METHODS = ["GET", "POST", "OPTIONS"]
+CORS_ALLOW_HEADERS = ["*"]
