@@ -29,75 +29,67 @@ The project consists of two main parts:
 * `django-cors-headers` (for handling Cross-Origin Resource Sharing)
 * Potentially: Google Cloud AI Platform (Vertex AI) or the `google-generativeai` library for interacting with Gemini.
 
-## Setup and Installation
+Setup and Installation (Local Development)
+Clone the repository:
 
-### Backend (Django )
+Bash
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <your_backend_repository_url>
-    cd <your_backend_directory>
-    ```
+git clone <your_repository_url>
+cd <your_project_directory>
+Navigate to the backend directory:
 
-2.  **Create a virtual environment (recommended):**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Linux/macOS
-    venv\Scripts\activate  # On Windows
-    ```
+Bash
 
-3.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+cd backend
+Create a virtual environment (recommended):
 
-4.  **Create a `.env` file in the project's root directory** and add your environment variables:
-    ```
-    SECRET_KEY=your_django_secret_key
-    GEMINI_API_KEY=your_gemini_api_key
-    # Add other environment variables as needed
-    ```
+Bash
 
-5.  **Make migrations and apply them:**
-    ```bash
-    python manage.py makemigrations
-    python manage.py migrate
-    ```
+python -m venv venv
+source venv/bin/activate  # On Linux/macOS
+venv\Scripts\activate  # On Windows
+Install backend dependencies:
 
-6.  **Create a superuser (optional, for Django Admin):**
-    ```bash
-    python manage.py createsuperuser
-    ```
+Bash
 
+pip install -r requirements.txt
+Create a .env file in the backend directory and add your environment variables:
 
-### Frontend (React)
+SECRET_KEY=your_django_secret_key
+GEMINI_API_KEY=your_gemini_api_key
+FRONTEND_URL=http://localhost:5173 # Default frontend development URL
+# Add other backend environment variables as needed
+Make and apply backend migrations:
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <your_frontend_repository_url>
-    cd <your_frontend_directory>
-    ```
+Bash
 
-2.  **Install dependencies:**
-    ```bash
-    npm install  # or yarn install
-    ```
+python manage.py makemigrations
+python manage.py migrate
+Run the backend development server:
 
-3.  **Set the backend API URL:** In your frontend code (e.g., `app.jsx`), ensure that the `axios.post` requests are pointing to the correct URL of your deployed Django backend on Render.io (e.g., `https://your-app-name.onrender.com/api/record/`).
+Bash
 
-## Environment Variables
+python manage.py runserver 0.0.0.0:8000
+(The backend will be accessible at http://localhost:8000/ by default)
 
-Ensure you have the following environment variables configured in both your local `.env` file (for development) and in your Render.io and Vercel deployment settings:
+Open a new terminal and navigate to the frontend directory:
 
-**Backend (`.env` and Render.io):**
+Bash
 
-* `SECRET_KEY`: Your Django secret key.
-* `GEMINI_API_KEY`: Your API key for the Gemini language model (if you are using it).
-* `FRONTEND_URL`: The URL of your deployed frontend application (e.g., `https://your-vercel-app.com`).
+cd ../frontend
+Install frontend dependencies:
 
-**Frontend (Vercel - if needed):**
+Bash
 
-* Any frontend-specific API keys or configuration variables.
+npm install  # or yarn install
+Start the frontend development server:
+
+Bash
+
+npm run dev  # or yarn dev - adjust based on your frontend script
+(The frontend will usually be accessible at http://localhost:5173/)
+
+Set the backend API URL: In your frontend code (e.g., app.jsx), ensure that the axios.post requests are pointing to your local backend development server URL (e.g., http://localhost:8000/api/record/).
 
 ## CORS Configuration
 
