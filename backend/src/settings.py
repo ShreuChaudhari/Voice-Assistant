@@ -89,10 +89,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://voice-assistant-shreya.onrender.com",
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://voice-assistant-zeta-ten.vercel.app",
-    "https://voice-assistant-shreya.onrender.com",
-]
+
 
 CORS_ALLOW_METHODS = ["GET", "POST", "OPTIONS"]
 CORS_ALLOW_HEADERS = ["*"]
