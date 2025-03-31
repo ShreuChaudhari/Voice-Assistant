@@ -1,6 +1,6 @@
 # Voice Assistant 
 
-Deployed Link:https://voice-assistant-zeta-ten.vercel.app/
+**Deployed Link** : https://voice-assistant-zeta-ten.vercel.app/
 
 This project is a simple voice assistant that allows users to record audio and have it processed by a backend, potentially using a large language model like Gemini.
 
