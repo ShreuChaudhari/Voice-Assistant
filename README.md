@@ -4,14 +4,14 @@
 
 *Imagine having a voice assistant that sounds just like me! This web app, which works great on any phone or computer, learns how I talk. So when you ask it something, it'll respond in my own words and even use information from my personal notes and chats to give you really specific answers – it's like having a digital version of me ready to help.*
 
-### Overview
+## Overview
 
 The project consists of two main parts:
 
 * **Frontend:** A React web application that provides the user interface for recording audio and displaying the conversation.
 * **Backend:** A Django REST Framework API that receives audio recordings, processes them (e.g., transcribes the audio), and potentially interacts with a language model to generate responses.
 
-### Technologies Used
+## Technologies Used
 
 **Frontend:**
 
@@ -29,7 +29,7 @@ The project consists of two main parts:
 * `django-cors-headers` (for handling Cross-Origin Resource Sharing)
 * Potentially: Google Cloud AI Platform (Vertex AI) or the `google-generativeai` library for interacting with Gemini.
 
-### Setup and Installation (Local Development)
+## Setup and Installation (Local Development)
 
 To run the project locally, follow these steps:
 
@@ -93,11 +93,11 @@ To run the project locally, follow these steps:
     (The frontend will usually be accessible at `http://localhost:5173/`)
 
 11. **Set the backend API URL:** In your frontend code (e.g., `app.jsx`), ensure that the `axios.post` requests are pointing to your local backend development server URL (e.g., `http://localhost:8000/api/record/`).
-### CORS Configuration
+## CORS Configuration
 
 The backend is configured to allow requests from the specified origins in the `CORS_ALLOWED_ORIGINS` setting in `src/settings.py`. Make sure your frontend's URL is included in this list.
 
-### Further Development
+## Further Development
 
 Possible areas for further development include:
 
@@ -109,7 +109,7 @@ Possible areas for further development include:
 * Implementing more robust error handling.
 
 
-### License
+## License
 
 
 
