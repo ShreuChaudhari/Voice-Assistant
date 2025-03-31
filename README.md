@@ -108,8 +108,6 @@ Possible areas for further development include:
 * Adding support for different audio formats.
 * Implementing more robust error handling.
 
-
 ## License
 
-
-
+This project is licensed under the [MIT License](LICENSE).
