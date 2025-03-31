@@ -2,6 +2,8 @@ Django==4.2.1
 djangorestframework==3.14.0
 django-cors-headers==3.13.0
 python-dotenv==1.0.0
+whitenoise
+psycopg2-binary
 gunicorn==21.2.0
 google-generativeai==0.4.0 
 speechrecognition==3.10.0  
