@@ -29,68 +29,70 @@ The project consists of two main parts:
 * `django-cors-headers` (for handling Cross-Origin Resource Sharing)
 * Potentially: Google Cloud AI Platform (Vertex AI) or the `google-generativeai` library for interacting with Gemini.
 
-Setup and Installation (Local Development)
-Clone the repository:
+## Setup and Installation (Local Development)
 
-Bash
+To run the project locally, follow these steps:
 
-git clone <your_repository_url>
-cd <your_project_directory>
-Navigate to the backend directory:
+1.  **Clone the repository:**
+    ```bash
+    git clone <your_repository_url>
+    cd <your_project_directory>
+    ```
 
-Bash
+2.  **Navigate to the backend directory:**
+    ```bash
+    cd backend
+    ```
 
-cd backend
-Create a virtual environment (recommended):
+3.  **Create a virtual environment (recommended):**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Linux/macOS
+    venv\Scripts\activate  # On Windows
+    ```
 
-Bash
+4.  **Install backend dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-python -m venv venv
-source venv/bin/activate  # On Linux/macOS
-venv\Scripts\activate  # On Windows
-Install backend dependencies:
+5.  **Create a `.env` file in the `backend` directory** and add your environment variables. For example:
+    ```
+    SECRET_KEY=your_django_secret_key
+    GEMINI_API_KEY=your_gemini_api_key
+    FRONTEND_URL=http://localhost:5173 # Default frontend development URL
+    # Add other backend environment variables as needed
+    ```
 
-Bash
+6.  **Make and apply backend migrations:**
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
 
-pip install -r requirements.txt
-Create a .env file in the backend directory and add your environment variables:
+7.  **Run the backend development server:**
+    ```bash
+    python manage.py runserver 0.0.0.0:8000
+    ```
+    (The backend will be accessible at `http://localhost:8000/` by default)
 
-SECRET_KEY=your_django_secret_key
-GEMINI_API_KEY=your_gemini_api_key
-FRONTEND_URL=http://localhost:5173 # Default frontend development URL
-# Add other backend environment variables as needed
-Make and apply backend migrations:
+8.  **Open a new terminal and navigate to the frontend directory:**
+    ```bash
+    cd ../frontend
+    ```
 
-Bash
+9.  **Install frontend dependencies:**
+    ```bash
+    npm install  # or yarn install
+    ```
 
-python manage.py makemigrations
-python manage.py migrate
-Run the backend development server:
+10. **Start the frontend development server:**
+    ```bash
+    npm run dev  # or yarn dev - adjust based on your frontend script
+    ```
+    (The frontend will usually be accessible at `http://localhost:5173/`)
 
-Bash
-
-python manage.py runserver 0.0.0.0:8000
-(The backend will be accessible at http://localhost:8000/ by default)
-
-Open a new terminal and navigate to the frontend directory:
-
-Bash
-
-cd ../frontend
-Install frontend dependencies:
-
-Bash
-
-npm install  # or yarn install
-Start the frontend development server:
-
-Bash
-
-npm run dev  # or yarn dev - adjust based on your frontend script
-(The frontend will usually be accessible at http://localhost:5173/)
-
-Set the backend API URL: In your frontend code (e.g., app.jsx), ensure that the axios.post requests are pointing to your local backend development server URL (e.g., http://localhost:8000/api/record/).
-
+11. **Set the backend API URL:** In your frontend code (e.g., `app.jsx`), ensure that the `axios.post` requests are pointing to your local backend development server URL (e.g., `http://localhost:8000/api/record/`).
 ## CORS Configuration
 
 The backend is configured to allow requests from the specified origins in the `CORS_ALLOWED_ORIGINS` setting in `src/settings.py`. Make sure your frontend's URL is included in this list.
