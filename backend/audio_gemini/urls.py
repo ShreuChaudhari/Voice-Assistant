@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('record/', views.record_audio, name='record_audio'),
-    path('process/', views.process_text, name='process_text'),
+    path("process_text/", process_text),
+    path("record_audio/", record_audio),
 ]
