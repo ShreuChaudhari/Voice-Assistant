@@ -82,5 +82,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://localhost:5173",  # The default port for Next.js development
+    "http://localhost:5173", 
+    "https://voice-assistant-production-d04d.up.railway.app",
 ]
