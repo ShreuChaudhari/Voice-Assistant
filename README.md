@@ -1,6 +1,6 @@
-# Voice Assistant 
+## Voice Assistant 
 
-***Deployed Link*** : https://voice-assistant-zeta-ten.vercel.app/
+#Deployed Link# : https://voice-assistant-zeta-ten.vercel.app/
 
 *Imagine having a voice assistant that sounds just like me! This web app, which works great on any phone or computer, learns how I talk. So when you ask it something, it'll respond in my own words and even use information from my personal notes and chats to give you really specific answers – it's like having a digital version of me ready to help.*
 
