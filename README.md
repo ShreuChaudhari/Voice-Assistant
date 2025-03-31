@@ -31,7 +31,7 @@ The project consists of two main parts:
 
 ## Setup and Installation
 
-### Backend (Django - Render.io Deployment)
+### Backend (Django )
 
 1.  **Clone the repository:**
     ```bash
@@ -70,7 +70,7 @@ The project consists of two main parts:
     ```
 
 
-### Frontend (React - Vercel Deployment)
+### Frontend (React)
 
 1.  **Clone the repository:**
     ```bash
