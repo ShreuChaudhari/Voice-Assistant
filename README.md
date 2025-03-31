@@ -67,13 +67,6 @@ The project consists of two main parts:
     python manage.py createsuperuser
     ```
 
-7.  **Deployment to Render.io:**
-    * Push your code to a Git repository (e.g., GitHub, GitLab, Bitbucket).
-    * Create a new Web Service on Render.io and connect it to your repository.
-    * **Build Command:** `pip install -r requirements.txt`
-    * **Start Command:** `gunicorn src.wsgi:application`
-    * **Environment Variables:** Add your `SECRET_KEY`, `GEMINI_API_KEY`, and `FRONTEND_URL` (set to your Vercel app URL) in the Render.io dashboard.
-    * Ensure your CORS settings in `src/settings.py` are correctly configured to allow requests from your frontend.
 
 ### Frontend (React - Vercel Deployment)
 
@@ -90,20 +83,40 @@ The project consists of two main parts:
 
 3.  **Set the backend API URL:** In your frontend code (e.g., `app.jsx`), ensure that the `axios.post` requests are pointing to the correct URL of your deployed Django backend on Render.io (e.g., `https://your-app-name.onrender.com/api/record/`).
 
-4.  **Deployment to Vercel:**
-    * Push your code to a Git repository.
-    * Create a new project on Vercel and connect it to your repository.
-    * Vercel should automatically detect it as a Next.js or React project and configure the build settings.
-    * Ensure that any necessary environment variables for your frontend are set in the Vercel dashboard.
+## Environment Variables
 
-## Usage
+Ensure you have the following environment variables configured in both your local `.env` file (for development) and in your Render.io and Vercel deployment settings:
 
-1.  Open the URL of your deployed frontend application in a web browser.
-2.  Click the "Start Recording" button to begin recording audio using your microphone (you might be prompted for microphone access).
-3.  Speak into your microphone.
-4.  Click the "Stop Recording" button to end the recording.
-5.  The frontend will send the audio data to your backend API for processing.
-6.  The conversation, including your transcribed text and the AI's responses, will be displayed in the conversation area.
-7.  If the backend is configured for text-to-speech, the AI's responses might also be spoken aloud.
+**Backend (`.env` and Render.io):**
 
-## Project Structure
+* `SECRET_KEY`: Your Django secret key.
+* `GEMINI_API_KEY`: Your API key for the Gemini language model (if you are using it).
+* `FRONTEND_URL`: The URL of your deployed frontend application (e.g., `https://your-vercel-app.com`).
+
+**Frontend (Vercel - if needed):**
+
+* Any frontend-specific API keys or configuration variables.
+
+## CORS Configuration
+
+The backend is configured to allow requests from the specified origins in the `CORS_ALLOWED_ORIGINS` setting in `src/settings.py`. Make sure your frontend's URL is included in this list.
+
+## Further Development
+
+Possible areas for further development include:
+
+* Implementing actual audio transcription on the backend.
+* Integrating with the Gemini language model for generating intelligent responses.
+* Adding user authentication.
+* Improving the user interface and user experience.
+* Adding support for different audio formats.
+* Implementing more robust error handling.
+
+## Contributing
+
+[Add your contributing guidelines here if you plan to allow contributions.]
+
+## License
+
+
+
