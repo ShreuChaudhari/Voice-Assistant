@@ -12,6 +12,9 @@ GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY is not set in the .env file")
 
+# Determine the frontend URL from an environment variable in production
+FRONTEND_URL = os.environ.get('FRONTEND_URL', "http://localhost:3000") # Default for local dev
+
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
@@ -27,17 +30,15 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Your CORS middleware
 ]
-
 
 ROOT_URLCONF = 'src.urls'  # Make sure this is set correctly
 
@@ -84,12 +85,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://localhost:5173", 
-    "https://voice-assistant-zeta-ten.vercel.app",
-    "https://voice-assistant-shreya.onrender.com",
+    "http://localhost:5173",  # The default port for Next.js development
+    "https://voice-assistant-zeta-ten.vercel.app",  # Your Vercel frontend URL
+    # You can add more origins here if needed
 ]
 
-
-
-CORS_ALLOW_METHODS = ["GET", "POST", "OPTIONS"]
-CORS_ALLOW_HEADERS = ["*"]
+# If you need to allow all origins (for testing, NOT recommended for production)
+# CORS_ALLOW_ALL_ORIGINS = True
