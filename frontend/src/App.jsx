@@ -39,7 +39,7 @@ function App() {
         formData.append("audio", audioBlob, "recording.webm");
 
         try {
-            const response = await axios.post('http://localhost:8000/api/record/', formData, {
+            const response = await axios.post('https://voice-assistant-shreya.onrender.com/record/', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 
@@ -60,7 +60,7 @@ function App() {
 
     const processText = async (text) => {
         try {
-            const response = await axios.post('http://localhost:8000/api/process/', { text });
+            const response = await axios.post('https://voice-assistant-shreya.onrender.com/process/', { text });
 
             if (response.data.success) {
                 addMessageToConversation('ai', response.data.response);
