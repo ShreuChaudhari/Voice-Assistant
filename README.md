@@ -2,7 +2,9 @@
 
 ### Deployed Link : https://voice-assistant-zeta-ten.vercel.app/
 
-##Demo:<img width="917" alt="image" src="https://github.com/user-attachments/assets/77896142-2452-4f4b-96df-c9f568615c55" />
+## Demo:
+
+<img width="917" alt="image" src="https://github.com/user-attachments/assets/77896142-2452-4f4b-96df-c9f568615c55" />
 
 
 *Imagine having a voice assistant that sounds just like me! This web app, which works great on any phone or computer, learns how I talk. So when you ask it something, it'll respond in my own words and even use information from my personal notes and chats to give you really specific answers – it's like having a digital version of me ready to help.*
