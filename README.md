@@ -1,7 +1,5 @@
 # Voice Assistant 
 
-### Deployed Link : https://voice-assistant-zeta-ten.vercel.app/
-
 ## Demo:
 
 <img width="917" alt="image" src="https://github.com/user-attachments/assets/77896142-2452-4f4b-96df-c9f568615c55" />
